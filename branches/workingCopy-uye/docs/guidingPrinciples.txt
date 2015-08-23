@@ -1,0 +1,46 @@
+A. the platform should be easy to use
+B. the platform should take care of scaffolding and make wiring easier or unneeded
+C. the platform should be flexible and extensible
+
+ A. the platform should provide all or most of the back end support needed to create a gwt application.
+	
+	dev work should focus more on the following areas 	
+ 	1. design the view
+ 		1.1 pick or create a layout
+ 		1.2 build the widgets through UIBinder
+ 		1.3 assign widgets to the display areas
+ 		
+ 	2. provide behavior to events
+ 		2.1 mouse
+ 		2.2 keyboard
+ 		2.3 browser
+ 		
+ 		
+ 	The platform should handle the following tasks
+ 	1. display a view
+ 		1.1 instantiate singleton views for re/use
+ 		
+ 	2. react to user events
+ 		2.1 mouse (left/right)
+ 			2.1.1 click
+ 			2.1.2 press
+ 			2.1.3 release
+ 			2.1.4 double click
+ 			2.1.5 drag
+ 		2.2 keyboard
+ 			2.2.1 key type
+ 			2.2.2 key press
+ 			2.2.3 key hold
+ 			2.2.4 key combinations
+ 		2.3 browser
+ 			2.3.1 update browser location
+ 			2.3.2 back button
+ 			2.3.3 window resize
+ 			2.3.4 window close
+ 			
+ 	3. react to server or application events
+ 		3.1 server requests
+ 		3.2 server response
+ 		3.2 events triggered by other widgets
+ 		
+ 		

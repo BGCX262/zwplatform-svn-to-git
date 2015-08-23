@@ -1,0 +1,13 @@
+ClientFactory
+
+PresenterFactory
+
+ViewFactory
+
+
+
+** Components can be reused, widgets on the other hand are tied to the application implementation?
+widgets - 	to be used only in the designated display areas of master layout. uses the event bus for communication
+			MainContentWidget, NavigationWidget
+component - can be reused and embedded into uibinder. self contained and independent. uses traditional observer pattern to notify the underlying parent widget. cannot be used directly into display areas
+			TreeViewComponent, RichTextComponent, DatePicker

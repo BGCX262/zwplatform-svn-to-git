@@ -1,0 +1,22 @@
+com
+--xxx.yyy - name of the implementing organization
+----client - typically, each package should have a slightly different look and have different functionality but
+             is still considered part of the same application. each should have its own set of places but could still share
+             among the different packages (i.e. HomePlace is used differently by admin, public and secure packages)
+             LOGICAL or FUNCTIONAL separation; adminClient, publicClient, secureClient
+------admin - sample package that has its own unique look from public or secure views, used to administer the application
+------public - sample package that has a simple layout, just one panel with all info thrown up in one big panel
+------secure - package for all items that need login to navigate
+----layouts - some custom layouts unique to the project
+----components - some custom self contained widgets unique to the project
+--zwplatform - package for the platform
+----client - organizes significantly unique elements into its own package 
+------inspector - package for the default view that analyzes how the application has been configured/overridden
+----layouts - default available layouts
+----components - default available self contained widgets (should probably be taken out into its own widget library)
+----framework
+------gin
+--------
+------ui
+--------baselayout
+    

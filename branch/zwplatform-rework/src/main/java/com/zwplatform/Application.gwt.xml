@@ -1,0 +1,21 @@
+<module rename-to="zwplatform">
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.google.gwt.user.theme.standard.Standard" />
+	<inherits name="com.google.gwt.place.Place" />
+	<inherits name="com.google.gwt.activity.Activity" />
+	
+	<!-- Define the entry point -->
+	<entry-point class="com.zwplatform.framework.Application" />
+
+	<!-- Use ClientFactoryImpl by default -->
+	<replace-with class="com.zwplatform.framework.ClientFactoryImpl">
+		<when-type-is class="com.zwplatform.framework.ClientFactory" />
+	</replace-with>
+	
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+	<source path='shared' />
+	<source path='framework' />
+
+</module>

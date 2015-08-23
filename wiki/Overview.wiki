@@ -1,0 +1,85 @@
+#labels Featured,Phase-Design
+= introduction =
+
+welcome to zwplatform, where everything is made up and the points don't matter.
+
+the objective is simple, to free the developer of gwt mvp's boilerplate and have them focus on creating visuals and implementing behaviors while having gin and the platform take care of wiring the application, managing events and passing information to the service. 
+
+the penultimate goal is to have a working hello world application in just a few steps
+  # download the platform and the maven pom file to generate the project folders
+  # create a single class, the hello world widget
+  # compile and deploy
+
+of course the platform should be able to do more than that, but it should be just as simple.
+
+the project is under early inception stages so don't expect usable code any time soon. keep tuned in though, as the goals are worthwhile and will definitely make life easier
+
+= guiding principles =
+== i. ease of use ==
+the platform should be easy and intuitive to use. it should follow best practices set by google in creating gwt and mvp applications. coupled with gin, wiring should be a whole lot simpler.
+
+  * widget views are to be created using uibinder. by using window builder editor, implementing views should be as simple as dragging and dropping components
+  * widget views are to be managed by an implementation of view factory. by specifying in a abstract view factory, the application gains the ability to conserve resources and at the same time be able to switch implementations on the fly (for mobile or desktop)
+  * layout is determined by a default master layout which has ten available default display areas.
+
+== ii. no more spaghetti ==
+
+provide all or most of the back end support needed to create gwt applications
+
+=== developer responsibilities ===
+as such, a developer using the platform should really focus his attention more on: 
+
+  # designing the view by
+    * picking or creating a layout
+    * building the widgets through uibinder
+    * assigning widgets to the display areas of the layout
+    * defining the places available in the application
+    * defining the security permissions required to display the widget
+  # providing behavior for user events(if needed) from the
+    * mouse (left and right buttons)
+      ** click
+      ** press
+      ** release
+      ** double click
+      ** drag
+    * keyboard
+      ** key type
+      ** key press
+      ** key release
+      ** key combinations
+    * browser
+      ** url change (through ActivityMappers)
+      ** back button
+      ** window resize
+      ** window close
+  # and lastly, providing behavior for framework events like
+    * getting a response back from the server
+    * and widget communication through the event bus
+
+
+=== platform responsibilities ===
+that said, the platform should then take care of the tedious and bothersome task of making everything talk to each other. this includes:
+  * providing display areas from a default master layout that an implementing widget can attach to
+  * managing activities
+    * starting and stopping activities based on place change events
+    * registering activities to the master layout's display areas through annotations
+  * managing views
+    * managing and switching master layout view implementations depending on the place
+    * provide a centralized repository of singleton instances of the views through a set of view factories, each maintaining its own implementation (i.e. mobile, desktop, tablet)
+    * views are to be assigned to the appropriate factories through annotation
+  * encapsulating gwt-mvp
+  * sending events through the event bus or to the service back end
+  * reacting to server or application events
+
+
+== iii. flexibility and extensibility ==
+the project should "deploy-ready". by modifying the maven pom file and setting the package option to "war" the resulting package should deploy to any servlet container. the platform is in essence, a stand alone application and anything added on top of it just configures how it behaves. that's why it's more a "platform" than a "framework". users of the project build ON TOP of the platform rather than build AROUND a framework. thus, the project should provide multiple points of entry for configuration
+  * custom widgets
+  * assigning behavior to views
+  * custom places
+  * layout options through or by replacing master layout
+  * look and feel through css
+  * custom components
+  * logical client package separation (same code base, different laf; shared service, different duties/domains i.e. public, secure, administration)
+  * custom dto de/serialization
+  * web service/rpc support through command pattern

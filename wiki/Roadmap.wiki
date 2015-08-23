@@ -1,0 +1,33 @@
+#labels Phase-Requirements,Featured
+= project roadmap =
+----
+== implemented features ==
+<pre>
+  ✓ maven based project
+  ✓ eclipse project configuration
+</pre>
+
+== planned features ==
+  # master layout widget
+    * provides ten(10) display areas and activity managers
+    * provides an implementable interface that can be used by the bestriding application to indicate which widgets should be placed in which display area.
+    * provides a mechanism for widgets to control the layout's proportions through the event bus
+    * automatically hides display areas that have no attached widgets
+  # presenter interface and abstract superclass
+    * provide a default presenter that can accept any view in the constructor and provide an easy way to display "static" widgets, aka. hello world
+    * super class defines how the presenter should manage the platform's multiple factories
+    * defines the available ui handlers that a component can call upon an event. does nothing by default but implementing presenters can provide their own behavior
+  # layout presenter
+    * accepts a layout widget
+    * knows how to configure the layout widget
+  # layout widget interface
+    * provides an interface that can be implemented by the extending project to declare its own layouts
+    * provides an accompanying interface that should tell the layout widget  what and how to display. most likely just a marker interface extended by a custom widget interface
+  # abstract view factory and interface
+
+----
+== proposed features ==
+  * annotation based wiring and configuration
+  * service backend to be build with spring roo
+  * client service communications with json
+  * client provides the required fields, service only uses the field list to build its json response
